@@ -16,6 +16,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Maximize disk space
+        uses: easimon/maximize-build-space@v10
+        with:
+          root-reserve-mb: 4096
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
