@@ -57,6 +57,6 @@ jobs:
           password: ${{ secrets.REGISTERY_PASSWORD }}
       - name: build
         run: |
-          docker pull registry.cn-hangzhou.aliyuncs.com/acejilam/ray:2.43.0-py39-gpu
+          docker pull --progress=plain registry.cn-hangzhou.aliyuncs.com/acejilam/ray:2.43.0-py39-gpu
           docker build -t registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp .
           docker push registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp
