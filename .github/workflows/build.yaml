@@ -25,6 +25,8 @@ jobs:
 #          remove-codeql: 'true'
       - name: Use /mnt for Docker storage
         run: |
+          df -h /
+          
           mkdir /mnt/docker
           echo '{"data-root": "/mnt/docker"}' > /etc/docker/daemon.json
           systemctl restart docker
