@@ -9,8 +9,7 @@ on:
     branches:
       - main
 
-# Declare default permissions as read only.
-permissions: read-write
+permissions: write-all
 
 jobs:
   build:
