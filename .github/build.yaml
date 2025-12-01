@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - build*
+#  push:
+#    branches:
+#      - build*
 
 # Declare default permissions as read only.
 permissions: read-all
