@@ -55,9 +55,8 @@ jobs:
           registry: registry.cn-hangzhou.aliyuncs.com
           username: ${{ secrets.REGISTERY_USERNAME }}
           password: ${{ secrets.REGISTERY_PASSWORD }}
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: false
-          context: .
-          tags: registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp
+      - name: build
+        run:
+          docker pull registry.cn-hangzhou.aliyuncs.com/acejilam/ray:2.43.0-py39-gpu
+          docker build -t registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp . 
+          docker push registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp
