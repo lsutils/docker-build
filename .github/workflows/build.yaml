@@ -27,8 +27,10 @@ jobs:
           password: ${{ secrets.REGISTERY_PASSWORD }}
       - name: Build the Docker image
         run: |
-          docker buildx create --use --platform=linux/amd64,linux/arm64 --name multi-platform-builder
-          docker buildx ls
-          docker buildx build -f ./Dockerfile --platform linux/arm64,linux/amd64 \
-            --cache-to=type=inline --pull -t registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp --push .
+          docker build -t registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp .
+          docker push registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp
+#          docker buildx create --use --platform=linux/amd64,linux/arm64 --name multi-platform-builder
+#          docker buildx ls
+#          docker buildx build -f ./Dockerfile --platform linux/arm64,linux/amd64 \
+#            --cache-to=type=inline --pull -t registry.cn-hangzhou.aliyuncs.com/ls-2018/test:tmp --push .
 
