@@ -27,7 +27,7 @@ jobs:
       - name: Use /mnt for Docker storage
         run: |
           mkdir /mnt/docker
-          echo '{"data-root": "/data/docker"}' > /etc/docker/daemon.json
+          echo '{"data-root": "/mnt/docker"}' > /etc/docker/daemon.json
           systemctl restart docker
           docker ps -a 
           docker images
